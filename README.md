@@ -1,16 +1,18 @@
 <p align="center">
-  <img src="resources/runway_icon.png" width="95">
-  <img src="resources/arduino.png" width="135">
+  <img src="https://runway.nyc3.digitaloceanspaces.com/assets/github/cover_runway_arduino_github.jpg">
 </p>
 
 # Runway + Arduino
 
-A collection of stand alone examples connecting [Runway](https://runwayml.com/) to [Arduino](https://www.arduino.cc/).
-Examples are separated by current available models.
+A collection of examples and tutorials on how to use [Runway](https://runwayapp.ai/) with [Arduino](https://www.arduino.cc/).
 
 ## Examples
+
+
+## Library
+
+Ideally this will become a standalone library that manages the serial connection between Arduino devices and Runway.
 
 ## Contributing
 
 This is still a work in progress. Contributions are welcomed!
-
