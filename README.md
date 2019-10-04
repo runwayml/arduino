@@ -8,6 +8,8 @@ A collection of examples and tutorials on how to use [Runway](https://runwayapp.
 
 ## Examples
 
+  [Examples](/Feather_Huzzah) for the Feather Huzzah board.
+
 
 ## Library
 
