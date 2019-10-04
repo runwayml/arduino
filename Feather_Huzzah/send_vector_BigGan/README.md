@@ -198,7 +198,7 @@ You should enter your own values for **ssid** and **pass** according to your wif
 
 As previously mentionned the **host** setting should match your **ip** address on the network (the one of the computer running runway) and the **port** given by runway in the network pannel. 
 
-You should **make sure that the computer running runway and the arduino board are.**
+You should **make sure that the computer running runway and the arduino board are on the same wifi network.**
 
 Once those settings are ok. The code uses only two functions built from the examples shipped with the library.
 
