@@ -12,9 +12,9 @@ Some links from the Adafruit website :
 
 Three examples are available :
 
-- [Receive data via http](/receive_text_vae_lagging_encoder_poetry) : which receives text data from the VAE laggin encoder poetry model and turns it into morse code through a blinking led.
-- [Send data via http basic](/send_text_attnGan) : which uses a potentiometer to navigate through the lines of a poetry and send those lines to the attnGan model for it to generate an image.
-- [Send data via http to vector](/send_vector_BigGan) : which will help you navigate through BigGan's latent space using a potentiometer.
+- [Receive data via http](/Feather_Huzzah/receive_text_vae_lagging_encoder_poetry) : which receives text data from the VAE laggin encoder poetry model and turns it into morse code through a blinking led.
+- [Send data via http basic](/Feather_Huzzah/send_text_attnGan) : which uses a potentiometer to navigate through the lines of a poetry and send those lines to the attnGan model for it to generate an image.
+- [Send data via http to vector](/Feather_Huzzah/send_vector_BigGan) : which will help you navigate through BigGan's latent space using a potentiometer.
 
 These examples use the the built-in wifi library and make use of the [arduinoJson library v6](https://arduinojson.org/) available via the library manager in the arduino ide.
 
