@@ -1,4 +1,4 @@
-
+// Morse alphabet code from :
 //https://www.instructables.com/id/Arduino-Based-Text-to-Morse-Translator/
 
 // wifi lib
@@ -16,40 +16,42 @@ const char* pass = "put-your-wifi-password-here"; // wifi password
 const char* host = "http://192.168.8.102:8000/data"; // route provided by runway
 //use your own computer ip on the network and the port given by runway
 
-const int ledPin = 2;
-const int time_base = 10; // sets a dot to 100 milliseconds
-const int dash = 3 * time_base; // sets a dash to 300 milliseconds
+const int ledPin = 2; // use the D2 pin to light our led
+const int time_base = 50; // sets a dot to 50 milliseconds
+const int dash = 3 * time_base; // sets a dash to 150 milliseconds
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
   wifi_connect();
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  String dat = http_get();
-  Serial.println(dat);
+  // print if we are connected
+  Serial.println("");
+  Serial.print("connected : ");
+  Serial.println(WiFiMulti.run() == WL_CONNECTED );
+  Serial.println("");
 
+  // get the data and serialize it to read it as a json object
+  String dat = http_get(); // get the data from arduino as a string
+  //Serial.println(dat); // print the raw data from runway
+
+  // Use arduinojson.org/assistant to compute the capacity.
+  // We don't really know the size in this case so might want to adjust it for longer bits of text
   StaticJsonDocument<500> doc;
-  deserializeJson(doc, dat);
+  deserializeJson(doc, dat); // write the result from httpget to a JSON doc
+  String out = doc["out"]; // extract the line corresponding to the "out" key
 
-  String out = doc["out"];
-  Serial.println(out);
-
+  // run through ou line character by character and make it blink our led.
   for (int i = 0 ; i < out.length() ; i++) {
     Serial.println(out.charAt(i));
     morse_alphabet(out.charAt(i));
   }
 
-
-
-  delay(1000);
-  digitalWrite(2, HIGH);
-  delay(1000);
+  // take some time before the next line
   digitalWrite(2, LOW);
-
+  delay(1000);
 
 }
 
@@ -75,7 +77,6 @@ String http_get() {
   if ((WiFiMulti.run() == WL_CONNECTED)) {
     WiFiClient client;
     HTTPClient http;
-
     Serial.print("[HTTP] begin...\n");
     if (http.begin(client, host)) { // HTTP
       Serial.print("[HTTP] GET...\n");
@@ -106,7 +107,7 @@ void morse_alphabet(char in) {
 
   if (in == 'a') { // checks if letter a was typed on serial
     digitalWrite(ledPin, HIGH); // turns light on
-    delay(time_base); // delays for the time of a dot (100 milliseconds)
+    delay(time_base); // delays for the time of a dot 
     digitalWrite(ledPin, LOW); // turns off light
     delay(time_base); // waits for time of a dot (Morse code specifies time between parts of a letter to be one dot)
     digitalWrite(ledPin, HIGH); // turns on light
