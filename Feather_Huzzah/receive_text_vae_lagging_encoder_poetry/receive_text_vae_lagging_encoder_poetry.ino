@@ -50,7 +50,7 @@ void loop() {
   }
 
   // take some time before the next line
-  digitalWrite(2, LOW);
+  digitalWrite(ledPin, LOW);
   delay(1000);
 
 }
