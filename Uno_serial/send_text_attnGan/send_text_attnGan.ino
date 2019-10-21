@@ -1,4 +1,3 @@
-
 // json lib
 #include <ArduinoJson.h>
 
@@ -18,8 +17,6 @@ int pindex = 0;
 
 void setup() {
   Serial.begin(9600);
-  delay(100);
-
 }
 
 void loop() {
