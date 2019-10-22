@@ -217,7 +217,7 @@ Then in the setup() function we will configure everything we need :
   ```
 - Define a callback function to write the code we need to execute when data arrives :
   ```js
-  // When we some data from the serial port : callback the 'gotData' function
+  // When we some data from the serial port : callback the 'gotData()' function
   serial.on('data', gotData);
   ```
   We will define it and leave it empty for now.  (This code needs to be outside the *setup()* function)
@@ -226,7 +226,7 @@ Then in the setup() function we will configure everything we need :
   function gotData() {
   }
   ```
-Now the connection between our Arduino code and our webpage should be working, and we can now get the data and process it. We will now mainly write code in the *gotData* function we just defined.
+Now the connection between our Arduino code and our webpage should be working, and we can now get the data and process it. We will now mainly write code in the *gotData()* function we just defined.
 
 ### Receiving data from Arduino
 When data is written by Arduino to the serial bus, our JS code automatically fires up the **gotData()** function. To read the data we can use the **serial.readLine()** function.
